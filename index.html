@@ -12,8 +12,8 @@
     }
 
     body {
-      background: linear-gradient(135deg, #e8eff4 0%, #cfdfe9 100%);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #eef2f7 0%, #d4e0e8 100%);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', system-ui, sans-serif;
       padding: 2rem 1.5rem;
       color: #1a2c3e;
     }
@@ -27,11 +27,12 @@
       overflow: hidden;
     }
 
+    /* Cabeçalho institucional */
     .hero {
-      background: linear-gradient(135deg, #0f2f3b 0%, #1a4b5e 100%);
+      background: linear-gradient(135deg, #0f2f3b 0%, #1a5b6e 100%);
       padding: 2rem 2.5rem;
       color: white;
-      border-bottom: 4px solid #f3b33d;
+      border-bottom: 4px solid #f39c12;
     }
 
     .hero h1 {
@@ -58,6 +59,15 @@
       flex-wrap: wrap;
     }
 
+    .hero .prof {
+      margin-top: 0.75rem;
+      font-size: 0.85rem;
+      background: rgba(255,255,255,0.1);
+      display: inline-block;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+    }
+
     .content {
       padding: 2.2rem 2.5rem;
     }
@@ -69,20 +79,10 @@
     .section-title {
       font-size: 1.7rem;
       font-weight: 700;
-      color: #1a4b5e;
-      border-left: 6px solid #f3b33d;
+      color: #1a5b6e;
+      border-left: 6px solid #f39c12;
       padding-left: 1rem;
       margin-bottom: 1.2rem;
-    }
-
-    .subsection-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin: 1.5rem 0 1rem 0;
-      color: #2c6e8a;
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
     .card-grid {
@@ -100,11 +100,16 @@
       min-width: 260px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       border: 1px solid #e3edf2;
+      transition: all 0.2s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     .info-card h3 {
       font-size: 1.25rem;
-      color: #f3b33d;
+      color: #f39c12;
       margin-bottom: 0.75rem;
       border-bottom: 2px dotted #cde3ec;
       display: inline-block;
@@ -124,16 +129,17 @@
 
     .req-list li::before {
       content: "✔️";
-      color: #f3b33d;
+      color: #f39c12;
       font-size: 0.9rem;
     }
 
-    /* Modelo de dados aprimorado */
+    /* Modelo de dados - tabela melhorada */
     .data-model-container {
       background: #f8fafc;
       border-radius: 1.2rem;
       overflow-x: auto;
       margin: 1rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
     }
 
     table {
@@ -143,7 +149,7 @@
     }
 
     th {
-      background: #1a4b5e;
+      background: #1a5b6e;
       color: white;
       padding: 12px 12px;
       text-align: left;
@@ -158,7 +164,7 @@
 
     .entity-name {
       font-weight: 800;
-      color: #1a4b5e;
+      color: #1a5b6e;
       font-size: 1rem;
     }
 
@@ -168,8 +174,10 @@
       padding: 1rem;
       margin-top: 1rem;
       font-size: 0.9rem;
+      border-left: 4px solid #f39c12;
     }
 
+    /* Protótipos de tela */
     .prototype-area {
       background: #f2f6f9;
       border-radius: 1.8rem;
@@ -189,14 +197,15 @@
       width: 300px;
       background: white;
       border-radius: 2rem;
-      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.25);
       overflow: hidden;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s;
       border: 1px solid #cbdbe0;
     }
 
     .phone:hover {
       transform: translateY(-6px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
     }
 
     .phone-screen {
@@ -214,7 +223,7 @@
     }
 
     .app-header {
-      background: #1a4b5e;
+      background: #1a5b6e;
       padding: 0.8rem;
       color: white;
       font-weight: bold;
@@ -242,8 +251,20 @@
     }
 
     .btn-mock {
-      background: #f3b33d;
+      background: #f39c12;
       color: #1a2c3e;
+      text-align: center;
+      padding: 0.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-top: 8px;
+      cursor: default;
+    }
+
+    .btn-mock-secondary {
+      background: #1a5b6e;
+      color: white;
       text-align: center;
       padding: 0.6rem;
       border-radius: 40px;
@@ -266,6 +287,15 @@
       background: #fefefe;
     }
 
+    .badge-pending {
+      background: #fde3a7;
+      border-radius: 20px;
+      padding: 2px 8px;
+      font-size: 0.65rem;
+      font-weight: bold;
+    }
+
+    /* Modelo de procedimento */
     .procedure-flow {
       background: #ffffff;
       border: 1px solid #dfecf2;
@@ -282,7 +312,7 @@
     }
 
     .step-circle {
-      background: #f3b33d;
+      background: #f39c12;
       color: #1a2c3e;
       width: 32px;
       height: 32px;
@@ -294,6 +324,18 @@
       flex-shrink: 0;
     }
 
+    .pseudocode {
+      background: #1e2f3a;
+      color: #eef2f7;
+      padding: 1rem;
+      border-radius: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+
+    /* Rodapé */
     .footer-group {
       margin-top: 2rem;
       background: #eef3f7;
@@ -303,6 +345,7 @@
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: center;
+      gap: 1rem;
     }
 
     .members {
@@ -312,15 +355,24 @@
     }
 
     .members strong {
-      color: #f3b33d;
+      color: #f39c12;
     }
 
     .btn-pseudo {
-      background: #1a4b5e;
+      background: #1a5b6e;
       padding: 0.4rem 1rem;
       border-radius: 30px;
       color: white;
       font-size: 0.8rem;
+    }
+
+    .note {
+      margin-top: 1rem;
+      text-align: right;
+      font-size: 0.7rem;
+      color: #538eaa;
+      border-top: 1px solid #d0e2ec;
+      padding-top: 1rem;
     }
 
     @media (max-width: 760px) {
@@ -340,38 +392,39 @@
 <div class="paper">
   <div class="hero">
     <h1>🏢 Gestão de Locação <span>Estudo de Caso - Eng. Software</span></h1>
-    <p>Cadastro de Inquilinos • Emissão de Boletos • Baixa de Pagamentos • Controle Financeiro</p>
-    <p style="font-size:0.85rem; margin-top:0.6rem;">UniCEUB – Desenho / Modelagem | Aplicativo Mobile para Imobiliárias e Locadores</p>
+    <p>Cadastro de Inquilinos • Emissão de Boletos • Baixa de Pagamentos • Controle de Inadimplência</p>
+    <div class="prof">marcos.soares@ceub.edu.br | UniCEUB – Centro Universitário de Brasília</div>
   </div>
 
   <div class="content">
-    <!-- 1. PROBLEMA E NECESSIDADES -->
+    <!-- 1. PROBLEMA E NECESSIDADES + REQUISITOS -->
     <div class="section">
-      <div class="section-title">🎯 Problema & Necessidades</div>
+      <div class="section-title">🎯 Problema escolhido & Necessidades</div>
       <div class="card-grid">
         <div class="info-card">
           <h3>📌 Problema identificado</h3>
           <p style="margin-top: 8px;">Proprietários e pequenas imobiliárias enfrentam dificuldades para <strong>gerenciar aluguéis</strong> de forma organizada: cadastro de inquilinos desatualizado, emissão manual de boletos e controle de pagamentos ineficiente, gerando inadimplência e retrabalho.</p>
-          <p style="margin-top: 12px;"><strong>✔ Solução:</strong> Aplicativo mobile <strong>"Aluga Gestão"</strong> que centraliza cadastro de inquilinos, propriedades, emite boletos mensais e permite baixa rápida de pagamentos.</p>
+          <p style="margin-top: 12px;"><strong>✔ Solução proposta:</strong> Aplicativo mobile <strong>"Aluga Fácil"</strong> que centraliza cadastro de inquilinos, propriedades, emite boletos mensais e permite baixa rápida de pagamentos.</p>
         </div>
         <div class="info-card">
-          <h3>✅ Requisitos Funcionais</h3>
+          <h3>✅ Requisitos Funcionais (RF)</h3>
           <ul class="req-list">
-            <li>RF01 - CRUD completo de inquilinos (nome, CPF, contato, endereço).</li>
-            <li>RF02 - CRUD de imóveis (endereço, valor do aluguel, data de vencimento).</li>
-            <li>RF03 - Gerar boleto mensal automaticamente para cada contrato ativo.</li>
-            <li>RF04 - Registrar baixa de pagamento (data, valor pago, forma de pagamento).</li>
-            <li>RF05 - Listar inadimplentes e enviar alertas automáticos.</li>
-            <li>RF06 - Relatório de receitas por período (mês/ano).</li>
+            <li><strong>RF01</strong> - CRUD completo de inquilinos (nome, CPF, contato, endereço)</li>
+            <li><strong>RF02</strong> - CRUD de imóveis (endereço, valor do aluguel, dia de vencimento)</li>
+            <li><strong>RF03</strong> - Gerar boleto mensal automaticamente para cada contrato ativo</li>
+            <li><strong>RF04</strong> - Registrar baixa de pagamento (data, valor pago, forma de pagamento)</li>
+            <li><strong>RF05</strong> - Listar inadimplentes e enviar alertas automáticos</li>
+            <li><strong>RF06</strong> - Relatório de receitas por período (mês/ano)</li>
           </ul>
         </div>
         <div class="info-card">
-          <h3>⚙️ Requisitos Não-Funcionais</h3>
+          <h3>⚙️ Requisitos Não-Funcionais (RNF)</h3>
           <ul class="req-list">
-            <li>RNF01 - Aplicativo mobile (Android/iOS) com interface simples e rápida.</li>
-            <li>RNF02 - Dados criptografados em nuvem (Firebase/Supabase) com sincronização.</li>
-            <li>RNF03 - Geração de boletos em PDF com código de barras (API externa).</li>
-            <li>RNF04 - Tempo de resposta < 1.5s para operações críticas.</li>
+            <li><strong>RNF01</strong> - Aplicativo mobile (Android/iOS) com interface simples</li>
+            <li><strong>RNF02</strong> - Dados criptografados em nuvem com sincronização</li>
+            <li><strong>RNF03</strong> - Geração de boletos em PDF com código de barras (API externa)</li>
+            <li><strong>RNF04</strong> - Tempo de resposta &lt; 1.5s para operações críticas</li>
+            <li><strong>RNF05</strong> - Segurança de dados e autenticação por biometria</li>
           </ul>
         </div>
       </div>
@@ -379,7 +432,7 @@
 
     <!-- 2. MODELO DE DADOS COMPLETO -->
     <div class="section">
-      <div class="section-title">🗄️ Modelagem de Dados (Entidades e Relacionamentos)</div>
+      <div class="section-title">🗄️ Modelo de Dados (Entidades e Relacionamentos)</div>
       <div class="data-model-container">
         <table>
           <thead>
@@ -395,26 +448,26 @@
         </table>
       </div>
       <div class="relationship">
-        💡 <strong>Relacionamentos:</strong> Um <strong>Inquilino</strong> pode ter vários <strong>Imóveis</strong> (1:N). Um <strong>Imóvel</strong> está associado a um <strong>Contrato</strong> (1:1). Cada <strong>Contrato</strong> gera vários <strong>Boletos</strong> mensais (1:N). Cada <strong>Boleto</strong> tem um <strong>Pagamento</strong> opcional (1:0..1).
+        💡 <strong>Relacionamentos:</strong> Um <strong>Inquilino</strong> pode ter vários <strong>Imóveis</strong> (1:N). Um <strong>Imóvel</strong> está associado a um <strong>Contrato</strong> (1:1). Cada <strong>Contrato</strong> gera vários <strong>Boletos</strong> mensais (1:N). Cada <strong>Boleto</strong> tem um <strong>Pagamento</strong> (1:0..1) — pode estar pendente ou já quitado.
       </div>
     </div>
 
-    <!-- 3. PROTÓTIPOS DE TELA -->
+    <!-- 3. PROTÓTIPOS DE TELA (MOBILE) -->
     <div class="section">
       <div class="section-title">📱 Protótipos de Tela (UI Mobile)</div>
       <div class="prototype-area">
         <div class="mockup-row">
-          <!-- TELA 1: Lista de inquilinos + imóvel -->
+          <!-- TELA 1: Inquilinos e Imóveis -->
           <div class="phone">
             <div class="phone-screen">
               <div class="status-bar">📱 10:30</div>
               <div class="app-header">👥 Inquilinos & Imóveis</div>
               <div class="app-body">
-                <div class="list-item"><span><strong>Celso Freitas</strong><br>Rua A, 123 - AP 101</span><span>R$ 1.800</span></div>
-                <div class="list-item"><span><strong>Renato Amaral</strong><br>Av. Central, 45 - Casa 2</span><span>R$ 2.200</span></div>
-                <div class="list-item"><span><strong>Victor Gomes</strong><br>Quadra 10, lote 5</span><span>R$ 1.500</span></div>
+                <div class="list-item"><div><strong>Celso Freitas</strong><br>Rua A, 123 - AP 101</div><div><strong>R$ 1.800</strong><br><span class="badge-pending">venc. 10</span></div></div>
+                <div class="list-item"><div><strong>Renato Amaral</strong><br>Av. Central, 45 - Casa 2</div><div><strong>R$ 2.200</strong><br><span class="badge-pending">venc. 15</span></div></div>
+                <div class="list-item"><div><strong>Victor Gomes</strong><br>Quadra 10, lote 5</div><div><strong>R$ 1.500</strong><br><span class="badge-pending">venc. 05</span></div></div>
                 <div class="btn-mock">+ Novo Inquilino / Imóvel</div>
-                <div style="font-size:0.65rem; text-align:center;">🔍 Buscar por CPF ou nome</div>
+                <div style="font-size:0.65rem; text-align:center; color:#666;">🔍 Buscar por nome ou CPF</div>
               </div>
             </div>
           </div>
@@ -426,12 +479,15 @@
               <div class="app-header">📄 Emitir Boleto</div>
               <div class="app-body">
                 <div class="form-mock">
-                  <select><option>Celso Freitas - R$ 1.800 (venc. 10/05)</option><option>Renato Amaral - R$ 2.200</option></select>
+                  <select><option>Celso Freitas - R$ 1.800 (venc. 10/05)</option><option>Renato Amaral - R$ 2.200</option><option>Victor Gomes - R$ 1.500</option></select>
                   <input type="text" placeholder="Data vencimento: 10/05/2026" value="10/05/2026">
                   <input type="text" placeholder="Valor do aluguel" value="R$ 1.800,00">
-                  <div class="btn-mock" style="background:#1a4b5e; color:white;">📎 Gerar Boleto (PDF)</div>
+                  <div class="btn-mock-secondary">📎 Gerar Boleto (PDF)</div>
                 </div>
-                <div class="list-item" style="background:#fef3e0;">Último boleto gerado: <br> Código: 34191.79009 01033...</div>
+                <div class="list-item" style="background:#fef3e0; flex-direction:column;">
+                  <span>📄 Último boleto gerado:</span>
+                  <span style="font-size:0.7rem; font-family:monospace;">34191.79009 01033...</span>
+                </div>
               </div>
             </div>
           </div>
@@ -442,19 +498,19 @@
               <div class="status-bar">📱 10:32</div>
               <div class="app-header">✅ Baixa de Pagamento</div>
               <div class="app-body">
-                <div class="list-item"><span>📍 Pagamentos pendentes</span><span>🔴 2</span></div>
+                <div class="list-item"><span>📍 Pagamentos pendentes</span><span class="badge-pending">🔴 2</span></div>
                 <div class="list-item"><span>Victor Gomes - Venc. 05/04</span><span>R$ 1.500</span></div>
                 <div class="list-item"><span>Renato Amaral - Venc. 08/04</span><span>R$ 2.200</span></div>
                 <div class="form-mock">
-                  <select><option>PIX</option><option>Dinheiro</option><option>Cartão</option></select>
-                  <input type="text" placeholder="Valor recebido">
+                  <select><option>PIX</option><option>Dinheiro</option><option>Cartão de Crédito</option><option>Transferência</option></select>
+                  <input type="text" placeholder="Valor recebido" value="R$">
                   <div class="btn-mock">✔️ Registrar Pagamento (Dar Baixa)</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem;">🎨 Protótipos funcionais: lista de inquilinos, emissão de boleto e baixa de pagamentos.</p>
+        <p style="text-align: center; margin-top: 1.2rem; font-size: 0.8rem; color: #2c647c;">🎨 Protótipos compatíveis com Quant-UX, Figma ou MarvelApp — telas funcionais para gestão de locação.</p>
       </div>
     </div>
 
@@ -464,46 +520,49 @@
       <div class="procedure-flow">
         <div class="step-item">
           <div class="step-circle">1</div>
-          <div class="step-text"><strong>Cadastro de Inquilino e Imóvel</strong><br>Usuário acessa "Cadastros" → preenche dados do inquilino (nome, CPF, contato) e endereço do imóvel, valor do aluguel, dia de vencimento → sistema salva no banco → vincula inquilino ao imóvel automaticamente.</div>
+          <div class="step-text"><strong>📝 Cadastro de Inquilino e Imóvel</strong><br>Usuário acessa "Cadastros" → preenche dados do inquilino (nome, CPF, contato) e endereço do imóvel, valor do aluguel, dia de vencimento → sistema salva no banco → vincula inquilino ao imóvel automaticamente.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">2</div>
-          <div class="step-text"><strong>Emissão Mensal de Boletos</strong><br>Todo dia 1º de cada mês (ou manualmente), sistema verifica contratos ativos → gera boleto com valor do aluguel + data_vencimento (dia definido) → armazena código de barras e status "pendente". Usuário pode emitir PDF e compartilhar via WhatsApp.</div>
+          <div class="step-text"><strong>📆 Emissão Mensal de Boletos</strong><br>Todo dia 1º de cada mês (ou manualmente), sistema verifica contratos ativos → gera boleto com valor do aluguel + data_vencimento (dia definido) → armazena código de barras e status "pendente". Usuário pode emitir PDF e compartilhar via WhatsApp.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">3</div>
-          <div class="step-text"><strong>Baixa de Pagamento</strong><br>Inquilino paga → usuário acessa tela "Pagamentos", localiza boleto pendente, clica em "Dar Baixa" → insere data, valor, forma de pagamento → sistema atualiza status do boleto para "pago" e registra na tabela Pagamento.</div>
+          <div class="step-text"><strong>💰 Baixa de Pagamento</strong><br>Inquilino paga → usuário acessa tela "Pagamentos", localiza boleto pendente, clica em "Dar Baixa" → insere data, valor, forma de pagamento → sistema atualiza status do boleto para "pago" e registra na tabela Pagamento.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">4</div>
-          <div class="step-text"><strong>Controle de Inadimplência e Relatórios</strong><br>Sistema compara data atual com vencimentos não pagos → exibe lista de inadimplentes → opção de enviar notificação automática. Gera relatório de receitas por período (mês/ano) agrupado por imóvel/inquilino.</div>
+          <div class="step-text"><strong>⚠️ Controle de Inadimplência e Relatórios</strong><br>Sistema compara data atual com vencimentos não pagos → exibe lista de inadimplentes → opção de enviar notificação automática. Gera relatório de receitas por período (mês/ano) agrupado por imóvel/inquilino.</div>
         </div>
       </div>
-      <div style="background:#ecf5f9; border-radius: 1rem; padding: 0.8rem; margin-top: 0.6rem;">
-        🔁 <strong>Procedimento (pseudocódigo - Baixa de Pagamento):</strong><br>
-        <code style="font-size:0.8rem;">function registrarBaixa(id_boleto, valorPago, formaPagamento):<br>
+      
+      <div class="pseudocode">
+        🔁 <strong style="color:#f39c12;">Procedimento em pseudocódigo (Baixa de Pagamento):</strong><br>
+        function registrarBaixa(id_boleto, valorPago, formaPagamento):<br>
+        &nbsp;&nbsp;boleto = consultarBoleto(id_boleto)<br>
         &nbsp;&nbsp;if boleto.status == 'pendente' and valorPago == boleto.valor:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO Pagamento VALUES (...);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;UPDATE Boleto SET status = 'pago' WHERE id = id_boleto;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;return "Baixa registrada com sucesso";<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO Pagamento (id_boleto, data_pagamento, valor_pago, forma_pagamento)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;VALUES (id_boleto, CURRENT_DATE, valorPago, formaPagamento)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;UPDATE Boleto SET status = 'pago' WHERE id = id_boleto<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "✅ Baixa registrada com sucesso"<br>
         &nbsp;&nbsp;else:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;return "Valor não confere ou boleto já pago";</code>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "❌ Erro: valor não confere ou boleto já pago"
       </div>
     </div>
 
-    <!-- 5. GRUPO E INFORMAÇÕES FINAIS -->
+    <!-- 5. MEMBROS DO GRUPO E ANEXO -->
     <div class="footer-group">
       <div class="members">
         👥 <strong>Membros do grupo que participaram da elaboração:</strong><br>
         Celso Henrique Freitas • Renato Amaral • Victor Gomes Moura
       </div>
       <div class="btn-pseudo">
-        📎 Anexo virtual: modelo de dados + protótipos + procedimentos
+        📎 Anexo virtual: protótipos, modelo de dados e procedimentos
       </div>
     </div>
-    <div style="margin-top: 1rem; text-align: right; font-size: 0.7rem; color: #538eaa; border-top: 1px solid #d0e2ec; padding-top: 1rem;">
+    <div class="note">
       🧾 Estudo de caso desenvolvido para disciplina de Engenharia de Software - Desenho/Modelagem.<br>
-      Tema: Cadastro de inquilinos, emissão de boleto e baixa de pagamentos. Protótipos compatíveis com ferramentas como Quant-UX, Figma ou MarvelApp.
+      Tema: Cadastro de inquilinos, emissão de boleto e baixa de pagamentos. Protótipos conceituais compatíveis com https://www.quant-ux.com ou ferramentas similares.
     </div>
   </div>
 </div>
