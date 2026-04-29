@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Eng. Software | Estudo de Caso - App Controle de Gastos</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #e9f0f5 0%, #d9e2ec 100%);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      padding: 2rem 1.5rem;
+      color: #1a2c3e;
+    }
+
+    /* container principal - similar a um documento acadêmico bonito */
+    .paper {
+      max-width: 1300px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    /* cabeçalho institucional */
+    .hero {
+      background: #0b2b38;
+      padding: 2rem 2.5rem;
+      color: white;
+      border-bottom: 4px solid #47b5d6;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .hero h1 span {
+      font-weight: 400;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.15);
+      padding: 0.2rem 0.8rem;
+      border-radius: 40px;
+      margin-left: 1rem;
+      vertical-align: middle;
+    }
+
+    .hero p {
+      margin-top: 0.5rem;
+      opacity: 0.85;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    /* conteúdo interno */
+    .content {
+      padding: 2.2rem 2.5rem;
+    }
+
+    /* seções */
+    .section {
+      margin-bottom: 2.8rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0f4c5f;
+      border-left: 6px solid #2c9bcf;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .subsection-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem 0;
+      color: #1e5a72;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .subsection-title i {
+      font-size: 1.5rem;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .info-card {
+      background: #f9fbfd;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      flex: 1;
+      min-width: 240px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e3edf2;
+      transition: all 0.2s;
+    }
+
+    .info-card h3 {
+      font-size: 1.25rem;
+      color: #2c7da0;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px dotted #cde3ec;
+      display: inline-block;
+    }
+
+    .req-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .req-list li {
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .req-list li::before {
+      content: "✔️";
+      color: #2c9bcf;
+      font-size: 0.9rem;
+    }
+
+    /* tabelas - modelo de dados */
+    .data-model {
+      background: #f8fafc;
+      border-radius: 1.2rem;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: #e2edf4;
+      color: #144d64;
+      padding: 12px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #d4e2ea;
+    }
+
+    .domain-badge {
+      background: #e0f0f7;
+      border-radius: 20px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      display: inline-block;
+      margin: 2px 3px;
+    }
+
+    /* Protótipos - telas mobile estilizadas */
+    .prototype-area {
+      background: #f2f6f9;
+      border-radius: 1.8rem;
+      padding: 1.8rem 1.2rem;
+      margin: 1rem 0;
+    }
+
+    .mockup-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .phone {
+      width: 280px;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      transition: transform 0.2s ease;
+      border: 1px solid #cbdbe0;
+    }
+
+    .phone:hover {
+      transform: translateY(-6px);
+    }
+
+    .phone-screen {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .status-bar {
+      background: #1f5068;
+      color: white;
+      padding: 0.6rem;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    .app-header {
+      background: #2c7da0;
+      padding: 0.8rem;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .app-body {
+      padding: 1rem;
+      min-height: 460px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .expense-item {
+      background: #f3f7fb;
+      border-radius: 16px;
+      padding: 0.7rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      border: 1px solid #e2ecf2;
+    }
+
+    .add-btn {
+      background: #2c7da0;
+      color: white;
+      text-align: center;
+      padding: 0.6rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
+
+    .form-mock {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-mock input, .form-mock select {
+      padding: 8px 10px;
+      border-radius: 30px;
+      border: 1px solid #ccdde6;
+      font-size: 0.7rem;
+      background: #fefefe;
+    }
+
+    .valor-green {
+      font-weight: 700;
+      color: #1f8a4c;
+    }
+
+    /* modelo de procedimentos */
+    .procedure-flow {
+      background: #ffffff;
+      border: 1px solid #dfecf2;
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .step-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.2rem;
+    }
+
+    .step-circle {
+      background: #3084a8;
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      flex: 1;
+    }
+
+    .footer-group {
+      margin-top: 2rem;
+      background: #eef3f7;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .members {
+      font-weight: 500;
+      color: #144d64;
+    }
+
+    .btn-pseudo {
+      background: #2c7da0;
+      padding: 0.4rem 1rem;
+      border-radius: 30px;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, #cde0e8, transparent);
+    }
+
+    @media (max-width: 760px) {
+      .content {
+        padding: 1.5rem;
+      }
+      .hero {
+        padding: 1.5rem;
+      }
+      .phone {
+        width: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="paper">
+  <div class="hero">
+    <h1>📱 Engenharia de Software <span>Estudo de Caso</span></h1>
+    <p>Desenho / Modelagem • Aplicativo Móvel • Controle de Gastos Pessoais</p>
+    <p style="font-size:0.85rem; margin-top:0.6rem;">marcos.soares@ceub.edu.br | UniCEUB – Centro Universitário de Brasília</p>
+  </div>
+
+  <div class="content">
+    <!-- 1. PROBLEMA E NECESSIDADES + REQUISITOS -->
+    <div class="section">
+      <div class="section-title">🎯 Problema escolhido & Necessidades</div>
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>📌 Problema / Necessidade</h3>
+          <p style="margin-top: 8px;">Muitas pessoas têm dificuldade em <strong>controlar, de forma simples e rápida, os gastos do dia a dia</strong>, resultando em descontrole financeiro e falta de visibilidade sobre para onde o dinheiro está indo.</p>
+          <p style="margin-top: 12px;"><strong>✔ Solução proposta:</strong> Aplicativo mobile <strong>"Meu Bolso em Dia"</strong> que permite registrar despesas diárias com poucos toques, categorizar e acompanhar resumos.</p>
+        </div>
+        <div class="info-card">
+          <h3>✅ Requisitos Funcionais</h3>
+          <ul class="req-list">
+            <li>RF01 - Registrar despesas diárias (data, tipo, descrição, valor, forma de pagamento).</li>
+            <li>RF02 - Listar todas as despesas ordenadas por data (mais recentes primeiro).</li>
+            <li>RF03 - Visualizar resumo de gastos por categoria (alimentação, transporte, saúde, lazer).</li>
+            <li>RF04 - Editar ou excluir despesas registradas.</li>
+            <li>RF05 - Exibir gasto total do mês atual.</li>
+          </ul>
+        </div>
+        <div class="info-card">
+          <h3>⚙️ Requisitos Não-Funcionais</h3>
+          <ul class="req-list">
+            <li>RNF01 - Aplicativo mobile (Android/iOS) com interface intuitiva.</li>
+            <li>RNF02 - Armazenamento local (SQLite/Realm) para segurança e privacidade.</li>
+            <li>RNF03 - Tempo de resposta < 1 segundo para operações principais.</li>
+            <li>RNF04 - Design acessível e com modo claro/escuro (opcional).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MODELO DE DADOS (estrutura) -->
+    <div class="section">
+      <div class="section-title">🗄️ Modelo de Dados</div>
+      <div class="data-model">
+        <table>
+          <thead>
+            <tr><th>Entidade</th><th>Atributos</th><th>Tipo / Restrições</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Despesa</strong></td>
+              <td>
+                id_despesa (PK)<br>
+                data_despesa<br>
+                tipo<br>
+                descricao<br>
+                valor<br>
+                forma_pagamento
+              </td>
+              <td>
+                INTEGER AUTO_INCREMENT<br>
+                DATE (NOT NULL)<br>
+                ENUM('alimentação','transporte','saúde','lazer')<br>
+                TEXT (opcional)<br>
+                DECIMAL(10,2) > 0<br>
+                ENUM('Dinheiro','Cartão Crédito','Cartão Débito','PIX')
+              </td>
+            </tr>
+            <tr>
+              <td><strong>ResumoMensal (view)</strong></td>
+              <td>ano_mes, total_gasto, categoria_maior_gasto</td>
+              <td>derivada da tabela Despesa — agregação</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top: 0.5rem; font-size: 0.85rem; background: #f0f5fa; padding: 0.6rem 1rem; border-radius: 1rem;">
+        💡 <strong>Domínio fixo de tipos:</strong> <span class="domain-badge">alimentação</span> <span class="domain-badge">transporte</span> <span class="domain-badge">saúde</span> <span class="domain-badge">lazer</span> &nbsp; | &nbsp; 
+        <strong>Formas de pagamento:</strong> Dinheiro, Cartão Crédito, Cartão Débito, PIX.
+      </div>
+    </div>
+
+    <!-- 3. PROTÓTIPOS DE TELA (wireframes/mockup móvel) -->
+    <div class="section">
+      <div class="section-title">📱 Protótipos de Tela (UI Mobile)</div>
+      <div class="prototype-area">
+        <div class="mockup-row">
+          <!-- TELA 1: Listagem de despesas + resumo -->
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="status-bar">📱 09:41</div>
+              <div class="app-header">💰 Meu Bolso em Dia</div>
+              <div class="app-body">
+                <div style="background:#eef3fc; border-radius: 20px; padding: 8px; text-align: center;">
+                  <span style="font-size:0.7rem;">Gasto mensal • Abril</span><br>
+                  <span style="font-weight:800; font-size:1.4rem;">R$ 847,50</span>
+                </div>
+                <div style="font-weight:600; font-size:0.75rem;">📋 Últimas despesas</div>
+                <div class="expense-item"><span>🍔 Alimentação</span><span>R$ 35,90</span></div>
+                <div class="expense-item"><span>🚗 Transporte</span><span>R$ 12,00</span></div>
+                <div class="expense-item"><span>🏥 Saúde</span><span>R$ 89,90</span></div>
+                <div class="add-btn">+ Nova Despesa</div>
+                <div style="font-size:0.65rem; text-align:center; margin-top:8px;">Deslize para editar ➡️</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TELA 2: Formulário de registro / adição de despesa -->
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="status-bar">📱 09:42</div>
+              <div class="app-header" style="background:#2081a3;">➕ Adicionar Despesa</div>
+              <div class="app-body">
+                <div class="form-mock">
+                  <input type="text" placeholder="Data: 29/04/2026" value="29/04/2026">
+                  <select>
+                    <option>Alimentação</option>
+                    <option>Transporte</option>
+                    <option>Saúde</option>
+                    <option>Lazer</option>
+                  </select>
+                  <input type="text" placeholder="Descrição: Almoço executivo">
+                  <input type="text" placeholder="Valor: R$ 42,50">
+                  <select>
+                    <option>Cartão Crédito</option>
+                    <option>Dinheiro</option>
+                    <option>Cartão Débito</option>
+                    <option>PIX</option>
+                  </select>
+                  <div class="add-btn" style="background:#1c6f8f;">Salvar Despesa</div>
+                </div>
+                <div style="font-size:0.65rem; color:#5a6e7a; text-align:center;">Campos obrigatórios: *</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TELA 3: Resumo por categoria + filtros -->
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="status-bar">📱 09:43</div>
+              <div class="app-header">📊 Estatísticas</div>
+              <div class="app-body">
+                <div class="expense-item"><span>🍽️ Alimentação</span><span>R$ 342,00</span></div>
+                <div class="expense-item"><span>🚌 Transporte</span><span>R$ 187,50</span></div>
+                <div class="expense-item"><span>💊 Saúde</span><span>R$ 210,00</span></div>
+                <div class="expense-item"><span>🎬 Lazer</span><span>R$ 108,00</span></div>
+                <hr style="margin:8px 0;">
+                <div class="expense-item"><strong>Total</strong><strong>R$ 847,50</strong></div>
+                <div class="mock-chip" style="align-self: center; margin-top: 8px;">Gráfico setorial integrado</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #2c647c;">🎨 Protótipos criados com referência visual quant-ux / Figma — telas funcionais para gestão de gastos.</p>
+      </div>
+    </div>
+
+    <!-- 4. MODELO DE PROCEDIMENTO (fluxo de uso/algoritmo) -->
+    <div class="section">
+      <div class="section-title">🔄 Modelo de Procedimento</div>
+      <div class="procedure-flow">
+        <div class="step-item">
+          <div class="step-circle">1</div>
+          <div class="step-text"><strong>Registrar despesa</strong><br>Usuário acessa tela "Nova Despesa" → preenche data, tipo, descrição, valor e forma de pagamento → sistema valida campos (valor >0, tipo válido) → armazena localmente no banco de dados → atualiza lista e resumo.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">2</div>
+          <div class="step-text"><strong>Visualizar despesas</strong><br>Ao iniciar ou clicar em "Início", o sistema exibe lista com últimas despesas e total do mês atual. Caso deseje filtrar por categoria → seleciona o tipo no menu de filtros → aplica query no modelo de dados.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">3</div>
+          <div class="step-text"><strong>Editar / Excluir</strong><br>Na lista de despesas, usuário desliza sobre um item (gesto swipe) ou clica no ícone de edição → altera dados da despesa ou confirma exclusão → sistema atualiza o registro no modelo de dados e recalcula totais automaticamente.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-circle">4</div>
+          <div class="step-text"><strong>Relatório por período</strong><br>O usuário seleciona "Relatórios" → escolhe mês/ano → sistema consulta a tabela 'Despesa' agrupando por tipo e devolve resumo com gráfico (procedimento de agregação). Baseado nos atributos data e valor.</div>
+        </div>
+      </div>
+      <div style="background:#ecf5f9; border-radius: 1rem; padding: 0.8rem; margin-top: 0.6rem;">
+        🔁 <strong>Procedimento em pseudocódigo (registro):</strong><br>
+        <code style="font-size:0.8rem;">function registrarDespesa(data, tipo, desc, valor, pagamento):<br>
+        &nbsp;&nbsp;if validarCampos() and valor > 0:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO Despesa VALUES (...);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;atualizarTotalMensal();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return sucesso;<br>
+        &nbsp;&nbsp;else: exibirErro("Dados inválidos");</code>
+      </div>
+    </div>
+
+    <!-- 5. Anexo com grupo e informações extras solicitadas no PDF -->
+    <div class="footer-group">
+      <div class="members">
+        👥 <strong>Membros do grupo que participaram da elaboração:</strong><br>
+        Ana Clara Rodrigues • Bruno Mendes Ferreira • Camila Vieira Santos • Diego Alves Moreira • Letícia Souza Lima
+      </div>
+      <div class="btn-pseudo">
+        📎 Anexo virtual: protótipos, modelo de dados e procedimentos
+      </div>
+    </div>
+    <div style="margin-top: 1rem; text-align: right; font-size: 0.7rem; color: #538eaa; border-top: 1px solid #d0e2ec; padding-top: 1rem;">
+      🧾 Estudo de caso desenvolvido para disciplina de Engenharia de Software - Desenho/Modelagem. Protótipos conceituais compatíveis com https://www.quant-ux.com ou ferramentas similares.
+    </div>
+  </div>
+</div>
+</body>
+</html>
