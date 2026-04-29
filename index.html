@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Eng. Software | Estudo de Caso - App Controle de Gastos</title>
+  <title>Eng. Software | Estudo de Caso - Gestão de Locação</title>
   <style>
     * {
       margin: 0;
@@ -12,29 +12,26 @@
     }
 
     body {
-      background: linear-gradient(145deg, #e9f0f5 0%, #d9e2ec 100%);
+      background: linear-gradient(135deg, #e8eff4 0%, #cfdfe9 100%);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       padding: 2rem 1.5rem;
       color: #1a2c3e;
     }
 
-    /* container principal - similar a um documento acadêmico bonito */
     .paper {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
       background: #ffffff;
       border-radius: 2rem;
-      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
       overflow: hidden;
-      transition: all 0.2s;
     }
 
-    /* cabeçalho institucional */
     .hero {
-      background: #0b2b38;
+      background: linear-gradient(135deg, #0f2f3b 0%, #1a4b5e 100%);
       padding: 2rem 2.5rem;
       color: white;
-      border-bottom: 4px solid #47b5d6;
+      border-bottom: 4px solid #f3b33d;
     }
 
     .hero h1 {
@@ -45,7 +42,7 @@
 
     .hero h1 span {
       font-weight: 400;
-      font-size: 1rem;
+      font-size: 0.9rem;
       background: rgba(255,255,255,0.15);
       padding: 0.2rem 0.8rem;
       border-radius: 40px;
@@ -54,19 +51,17 @@
     }
 
     .hero p {
-      margin-top: 0.5rem;
-      opacity: 0.85;
+      margin-top: 0.6rem;
+      opacity: 0.9;
       display: flex;
       gap: 1.5rem;
       flex-wrap: wrap;
     }
 
-    /* conteúdo interno */
     .content {
       padding: 2.2rem 2.5rem;
     }
 
-    /* seções */
     .section {
       margin-bottom: 2.8rem;
     }
@@ -74,8 +69,8 @@
     .section-title {
       font-size: 1.7rem;
       font-weight: 700;
-      color: #0f4c5f;
-      border-left: 6px solid #2c9bcf;
+      color: #1a4b5e;
+      border-left: 6px solid #f3b33d;
       padding-left: 1rem;
       margin-bottom: 1.2rem;
     }
@@ -84,14 +79,10 @@
       font-size: 1.3rem;
       font-weight: 600;
       margin: 1.5rem 0 1rem 0;
-      color: #1e5a72;
+      color: #2c6e8a;
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    .subsection-title i {
-      font-size: 1.5rem;
     }
 
     .card-grid {
@@ -106,15 +97,14 @@
       border-radius: 1.5rem;
       padding: 1.5rem;
       flex: 1;
-      min-width: 240px;
+      min-width: 260px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       border: 1px solid #e3edf2;
-      transition: all 0.2s;
     }
 
     .info-card h3 {
       font-size: 1.25rem;
-      color: #2c7da0;
+      color: #f3b33d;
       margin-bottom: 0.75rem;
       border-bottom: 2px dotted #cde3ec;
       display: inline-block;
@@ -134,12 +124,12 @@
 
     .req-list li::before {
       content: "✔️";
-      color: #2c9bcf;
+      color: #f3b33d;
       font-size: 0.9rem;
     }
 
-    /* tabelas - modelo de dados */
-    .data-model {
+    /* Modelo de dados aprimorado */
+    .data-model-container {
       background: #f8fafc;
       border-radius: 1.2rem;
       overflow-x: auto;
@@ -149,12 +139,12 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     th {
-      background: #e2edf4;
-      color: #144d64;
+      background: #1a4b5e;
+      color: white;
       padding: 12px 12px;
       text-align: left;
       font-weight: 600;
@@ -163,19 +153,23 @@
     td {
       padding: 10px 12px;
       border-bottom: 1px solid #d4e2ea;
+      vertical-align: top;
     }
 
-    .domain-badge {
-      background: #e0f0f7;
-      border-radius: 20px;
-      padding: 2px 10px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      display: inline-block;
-      margin: 2px 3px;
+    .entity-name {
+      font-weight: 800;
+      color: #1a4b5e;
+      font-size: 1rem;
     }
 
-    /* Protótipos - telas mobile estilizadas */
+    .relationship {
+      background: #eef3f8;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
     .prototype-area {
       background: #f2f6f9;
       border-radius: 1.8rem;
@@ -192,7 +186,7 @@
     }
 
     .phone {
-      width: 280px;
+      width: 300px;
       background: white;
       border-radius: 2rem;
       box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.3);
@@ -220,7 +214,7 @@
     }
 
     .app-header {
-      background: #2c7da0;
+      background: #1a4b5e;
       padding: 0.8rem;
       color: white;
       font-weight: bold;
@@ -230,14 +224,14 @@
 
     .app-body {
       padding: 1rem;
-      min-height: 460px;
+      min-height: 480px;
       background: #ffffff;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .expense-item {
+    .list-item {
       background: #f3f7fb;
       border-radius: 16px;
       padding: 0.7rem;
@@ -247,9 +241,9 @@
       border: 1px solid #e2ecf2;
     }
 
-    .add-btn {
-      background: #2c7da0;
-      color: white;
+    .btn-mock {
+      background: #f3b33d;
+      color: #1a2c3e;
       text-align: center;
       padding: 0.6rem;
       border-radius: 40px;
@@ -272,12 +266,6 @@
       background: #fefefe;
     }
 
-    .valor-green {
-      font-weight: 700;
-      color: #1f8a4c;
-    }
-
-    /* modelo de procedimentos */
     .procedure-flow {
       background: #ffffff;
       border: 1px solid #dfecf2;
@@ -294,8 +282,8 @@
     }
 
     .step-circle {
-      background: #3084a8;
-      color: white;
+      background: #f3b33d;
+      color: #1a2c3e;
       width: 32px;
       height: 32px;
       border-radius: 60px;
@@ -304,10 +292,6 @@
       justify-content: center;
       font-weight: bold;
       flex-shrink: 0;
-    }
-
-    .step-text {
-      flex: 1;
     }
 
     .footer-group {
@@ -324,22 +308,19 @@
     .members {
       font-weight: 500;
       color: #144d64;
+      line-height: 1.6;
+    }
+
+    .members strong {
+      color: #f3b33d;
     }
 
     .btn-pseudo {
-      background: #2c7da0;
+      background: #1a4b5e;
       padding: 0.4rem 1rem;
       border-radius: 30px;
       color: white;
       font-size: 0.8rem;
-      font-weight: 500;
-    }
-
-    hr {
-      margin: 1rem 0;
-      border: none;
-      height: 1px;
-      background: linear-gradient(90deg, #cde0e8, transparent);
     }
 
     @media (max-width: 760px) {
@@ -350,7 +331,7 @@
         padding: 1.5rem;
       }
       .phone {
-        width: 260px;
+        width: 280px;
       }
     }
   </style>
@@ -358,204 +339,171 @@
 <body>
 <div class="paper">
   <div class="hero">
-    <h1>📱 Engenharia de Software <span>Estudo de Caso</span></h1>
-    <p>Desenho / Modelagem • Aplicativo Móvel • Controle de Gastos Pessoais</p>
-    <p style="font-size:0.85rem; margin-top:0.6rem;">marcos.soares@ceub.edu.br | UniCEUB – Centro Universitário de Brasília</p>
+    <h1>🏢 Gestão de Locação <span>Estudo de Caso - Eng. Software</span></h1>
+    <p>Cadastro de Inquilinos • Emissão de Boletos • Baixa de Pagamentos • Controle Financeiro</p>
+    <p style="font-size:0.85rem; margin-top:0.6rem;">UniCEUB – Desenho / Modelagem | Aplicativo Mobile para Imobiliárias e Locadores</p>
   </div>
 
   <div class="content">
-    <!-- 1. PROBLEMA E NECESSIDADES + REQUISITOS -->
+    <!-- 1. PROBLEMA E NECESSIDADES -->
     <div class="section">
-      <div class="section-title">🎯 Problema escolhido & Necessidades</div>
+      <div class="section-title">🎯 Problema & Necessidades</div>
       <div class="card-grid">
         <div class="info-card">
-          <h3>📌 Problema / Necessidade</h3>
-          <p style="margin-top: 8px;">Muitas pessoas têm dificuldade em <strong>controlar, de forma simples e rápida, os gastos do dia a dia</strong>, resultando em descontrole financeiro e falta de visibilidade sobre para onde o dinheiro está indo.</p>
-          <p style="margin-top: 12px;"><strong>✔ Solução proposta:</strong> Aplicativo mobile <strong>"Meu Bolso em Dia"</strong> que permite registrar despesas diárias com poucos toques, categorizar e acompanhar resumos.</p>
+          <h3>📌 Problema identificado</h3>
+          <p style="margin-top: 8px;">Proprietários e pequenas imobiliárias enfrentam dificuldades para <strong>gerenciar aluguéis</strong> de forma organizada: cadastro de inquilinos desatualizado, emissão manual de boletos e controle de pagamentos ineficiente, gerando inadimplência e retrabalho.</p>
+          <p style="margin-top: 12px;"><strong>✔ Solução:</strong> Aplicativo mobile <strong>"Aluga Gestão"</strong> que centraliza cadastro de inquilinos, propriedades, emite boletos mensais e permite baixa rápida de pagamentos.</p>
         </div>
         <div class="info-card">
           <h3>✅ Requisitos Funcionais</h3>
           <ul class="req-list">
-            <li>RF01 - Registrar despesas diárias (data, tipo, descrição, valor, forma de pagamento).</li>
-            <li>RF02 - Listar todas as despesas ordenadas por data (mais recentes primeiro).</li>
-            <li>RF03 - Visualizar resumo de gastos por categoria (alimentação, transporte, saúde, lazer).</li>
-            <li>RF04 - Editar ou excluir despesas registradas.</li>
-            <li>RF05 - Exibir gasto total do mês atual.</li>
+            <li>RF01 - CRUD completo de inquilinos (nome, CPF, contato, endereço).</li>
+            <li>RF02 - CRUD de imóveis (endereço, valor do aluguel, data de vencimento).</li>
+            <li>RF03 - Gerar boleto mensal automaticamente para cada contrato ativo.</li>
+            <li>RF04 - Registrar baixa de pagamento (data, valor pago, forma de pagamento).</li>
+            <li>RF05 - Listar inadimplentes e enviar alertas automáticos.</li>
+            <li>RF06 - Relatório de receitas por período (mês/ano).</li>
           </ul>
         </div>
         <div class="info-card">
           <h3>⚙️ Requisitos Não-Funcionais</h3>
           <ul class="req-list">
-            <li>RNF01 - Aplicativo mobile (Android/iOS) com interface intuitiva.</li>
-            <li>RNF02 - Armazenamento local (SQLite/Realm) para segurança e privacidade.</li>
-            <li>RNF03 - Tempo de resposta < 1 segundo para operações principais.</li>
-            <li>RNF04 - Design acessível e com modo claro/escuro (opcional).</li>
+            <li>RNF01 - Aplicativo mobile (Android/iOS) com interface simples e rápida.</li>
+            <li>RNF02 - Dados criptografados em nuvem (Firebase/Supabase) com sincronização.</li>
+            <li>RNF03 - Geração de boletos em PDF com código de barras (API externa).</li>
+            <li>RNF04 - Tempo de resposta < 1.5s para operações críticas.</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- 2. MODELO DE DADOS (estrutura) -->
+    <!-- 2. MODELO DE DADOS COMPLETO -->
     <div class="section">
-      <div class="section-title">🗄️ Modelo de Dados</div>
-      <div class="data-model">
+      <div class="section-title">🗄️ Modelagem de Dados (Entidades e Relacionamentos)</div>
+      <div class="data-model-container">
         <table>
           <thead>
             <tr><th>Entidade</th><th>Atributos</th><th>Tipo / Restrições</th></tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Despesa</strong></td>
-              <td>
-                id_despesa (PK)<br>
-                data_despesa<br>
-                tipo<br>
-                descricao<br>
-                valor<br>
-                forma_pagamento
-              </td>
-              <td>
-                INTEGER AUTO_INCREMENT<br>
-                DATE (NOT NULL)<br>
-                ENUM('alimentação','transporte','saúde','lazer')<br>
-                TEXT (opcional)<br>
-                DECIMAL(10,2) > 0<br>
-                ENUM('Dinheiro','Cartão Crédito','Cartão Débito','PIX')
-              </td>
-            </tr>
-            <tr>
-              <td><strong>ResumoMensal (view)</strong></td>
-              <td>ano_mes, total_gasto, categoria_maior_gasto</td>
-              <td>derivada da tabela Despesa — agregação</td>
-            </tr>
+            <tr><td class="entity-name">Inquilino</td><td>id_inquilino (PK)<br>nome_completo<br>cpf<br>telefone<br>email<br>endereco</td><td>INT AUTO_INCREMENT<br>VARCHAR(100) NOT NULL<br>CHAR(11) UNIQUE<br>VARCHAR(15)<br>VARCHAR(100)<br>TEXT</td></tr>
+            <tr><td class="entity-name">Imovel</td><td>id_imovel (PK)<br>endereco_completo<br>valor_aluguel<br>dia_vencimento<br>id_inquilino (FK)</td><td>INT AUTO_INCREMENT<br>VARCHAR(200) NOT NULL<br>DECIMAL(10,2) > 0<br>INT (1-31)<br>INT → referência Inquilino</td></tr>
+            <tr><td class="entity-name">Contrato_Locacao</td><td>id_contrato (PK)<br>data_inicio<br>data_fim<br>status (ativo/inativo)<br>id_imovel (FK)<br>id_inquilino (FK)</td><td>INT AUTO_INCREMENT<br>DATE NOT NULL<br>DATE<br>ENUM('ativo','inativo')<br>INT REFERENCES Imovel<br>INT REFERENCES Inquilino</td></tr>
+            <tr><td class="entity-name">Boleto</td><td>id_boleto (PK)<br>id_contrato (FK)<br>data_emissao<br>data_vencimento<br>valor<br>codigo_barras<br>status (pendente/pago)</td><td>INT AUTO_INCREMENT<br>INT NOT NULL<br>DATE DEFAULT CURRENT_DATE<br>DATE NOT NULL<br>DECIMAL(10,2)<br>VARCHAR(50) UNIQUE<br>ENUM('pendente','pago')</td></tr>
+            <tr><td class="entity-name">Pagamento</td><td>id_pagamento (PK)<br>id_boleto (FK)<br>data_pagamento<br>valor_pago<br>forma_pagamento<br>observacoes</td><td>INT AUTO_INCREMENT<br>INT NOT NULL<br>DATE DEFAULT CURRENT_DATE<br>DECIMAL(10,2)<br>ENUM('PIX','Dinheiro','Cartão','Transferência')<br>TEXT</td></tr>
           </tbody>
         </table>
       </div>
-      <div style="margin-top: 0.5rem; font-size: 0.85rem; background: #f0f5fa; padding: 0.6rem 1rem; border-radius: 1rem;">
-        💡 <strong>Domínio fixo de tipos:</strong> <span class="domain-badge">alimentação</span> <span class="domain-badge">transporte</span> <span class="domain-badge">saúde</span> <span class="domain-badge">lazer</span> &nbsp; | &nbsp; 
-        <strong>Formas de pagamento:</strong> Dinheiro, Cartão Crédito, Cartão Débito, PIX.
+      <div class="relationship">
+        💡 <strong>Relacionamentos:</strong> Um <strong>Inquilino</strong> pode ter vários <strong>Imóveis</strong> (1:N). Um <strong>Imóvel</strong> está associado a um <strong>Contrato</strong> (1:1). Cada <strong>Contrato</strong> gera vários <strong>Boletos</strong> mensais (1:N). Cada <strong>Boleto</strong> tem um <strong>Pagamento</strong> opcional (1:0..1).
       </div>
     </div>
 
-    <!-- 3. PROTÓTIPOS DE TELA (wireframes/mockup móvel) -->
+    <!-- 3. PROTÓTIPOS DE TELA -->
     <div class="section">
       <div class="section-title">📱 Protótipos de Tela (UI Mobile)</div>
       <div class="prototype-area">
         <div class="mockup-row">
-          <!-- TELA 1: Listagem de despesas + resumo -->
+          <!-- TELA 1: Lista de inquilinos + imóvel -->
           <div class="phone">
             <div class="phone-screen">
-              <div class="status-bar">📱 09:41</div>
-              <div class="app-header">💰 Meu Bolso em Dia</div>
+              <div class="status-bar">📱 10:30</div>
+              <div class="app-header">👥 Inquilinos & Imóveis</div>
               <div class="app-body">
-                <div style="background:#eef3fc; border-radius: 20px; padding: 8px; text-align: center;">
-                  <span style="font-size:0.7rem;">Gasto mensal • Abril</span><br>
-                  <span style="font-weight:800; font-size:1.4rem;">R$ 847,50</span>
-                </div>
-                <div style="font-weight:600; font-size:0.75rem;">📋 Últimas despesas</div>
-                <div class="expense-item"><span>🍔 Alimentação</span><span>R$ 35,90</span></div>
-                <div class="expense-item"><span>🚗 Transporte</span><span>R$ 12,00</span></div>
-                <div class="expense-item"><span>🏥 Saúde</span><span>R$ 89,90</span></div>
-                <div class="add-btn">+ Nova Despesa</div>
-                <div style="font-size:0.65rem; text-align:center; margin-top:8px;">Deslize para editar ➡️</div>
+                <div class="list-item"><span><strong>Celso Freitas</strong><br>Rua A, 123 - AP 101</span><span>R$ 1.800</span></div>
+                <div class="list-item"><span><strong>Renato Amaral</strong><br>Av. Central, 45 - Casa 2</span><span>R$ 2.200</span></div>
+                <div class="list-item"><span><strong>Victor Gomes</strong><br>Quadra 10, lote 5</span><span>R$ 1.500</span></div>
+                <div class="btn-mock">+ Novo Inquilino / Imóvel</div>
+                <div style="font-size:0.65rem; text-align:center;">🔍 Buscar por CPF ou nome</div>
               </div>
             </div>
           </div>
 
-          <!-- TELA 2: Formulário de registro / adição de despesa -->
+          <!-- TELA 2: Emissão de Boleto -->
           <div class="phone">
             <div class="phone-screen">
-              <div class="status-bar">📱 09:42</div>
-              <div class="app-header" style="background:#2081a3;">➕ Adicionar Despesa</div>
+              <div class="status-bar">📱 10:31</div>
+              <div class="app-header">📄 Emitir Boleto</div>
               <div class="app-body">
                 <div class="form-mock">
-                  <input type="text" placeholder="Data: 29/04/2026" value="29/04/2026">
-                  <select>
-                    <option>Alimentação</option>
-                    <option>Transporte</option>
-                    <option>Saúde</option>
-                    <option>Lazer</option>
-                  </select>
-                  <input type="text" placeholder="Descrição: Almoço executivo">
-                  <input type="text" placeholder="Valor: R$ 42,50">
-                  <select>
-                    <option>Cartão Crédito</option>
-                    <option>Dinheiro</option>
-                    <option>Cartão Débito</option>
-                    <option>PIX</option>
-                  </select>
-                  <div class="add-btn" style="background:#1c6f8f;">Salvar Despesa</div>
+                  <select><option>Celso Freitas - R$ 1.800 (venc. 10/05)</option><option>Renato Amaral - R$ 2.200</option></select>
+                  <input type="text" placeholder="Data vencimento: 10/05/2026" value="10/05/2026">
+                  <input type="text" placeholder="Valor do aluguel" value="R$ 1.800,00">
+                  <div class="btn-mock" style="background:#1a4b5e; color:white;">📎 Gerar Boleto (PDF)</div>
                 </div>
-                <div style="font-size:0.65rem; color:#5a6e7a; text-align:center;">Campos obrigatórios: *</div>
+                <div class="list-item" style="background:#fef3e0;">Último boleto gerado: <br> Código: 34191.79009 01033...</div>
               </div>
             </div>
           </div>
 
-          <!-- TELA 3: Resumo por categoria + filtros -->
+          <!-- TELA 3: Baixa de Pagamento -->
           <div class="phone">
             <div class="phone-screen">
-              <div class="status-bar">📱 09:43</div>
-              <div class="app-header">📊 Estatísticas</div>
+              <div class="status-bar">📱 10:32</div>
+              <div class="app-header">✅ Baixa de Pagamento</div>
               <div class="app-body">
-                <div class="expense-item"><span>🍽️ Alimentação</span><span>R$ 342,00</span></div>
-                <div class="expense-item"><span>🚌 Transporte</span><span>R$ 187,50</span></div>
-                <div class="expense-item"><span>💊 Saúde</span><span>R$ 210,00</span></div>
-                <div class="expense-item"><span>🎬 Lazer</span><span>R$ 108,00</span></div>
-                <hr style="margin:8px 0;">
-                <div class="expense-item"><strong>Total</strong><strong>R$ 847,50</strong></div>
-                <div class="mock-chip" style="align-self: center; margin-top: 8px;">Gráfico setorial integrado</div>
+                <div class="list-item"><span>📍 Pagamentos pendentes</span><span>🔴 2</span></div>
+                <div class="list-item"><span>Victor Gomes - Venc. 05/04</span><span>R$ 1.500</span></div>
+                <div class="list-item"><span>Renato Amaral - Venc. 08/04</span><span>R$ 2.200</span></div>
+                <div class="form-mock">
+                  <select><option>PIX</option><option>Dinheiro</option><option>Cartão</option></select>
+                  <input type="text" placeholder="Valor recebido">
+                  <div class="btn-mock">✔️ Registrar Pagamento (Dar Baixa)</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: #2c647c;">🎨 Protótipos criados com referência visual quant-ux / Figma — telas funcionais para gestão de gastos.</p>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem;">🎨 Protótipos funcionais: lista de inquilinos, emissão de boleto e baixa de pagamentos.</p>
       </div>
     </div>
 
-    <!-- 4. MODELO DE PROCEDIMENTO (fluxo de uso/algoritmo) -->
+    <!-- 4. MODELO DE PROCEDIMENTO -->
     <div class="section">
-      <div class="section-title">🔄 Modelo de Procedimento</div>
+      <div class="section-title">🔄 Modelo de Procedimentos</div>
       <div class="procedure-flow">
         <div class="step-item">
           <div class="step-circle">1</div>
-          <div class="step-text"><strong>Registrar despesa</strong><br>Usuário acessa tela "Nova Despesa" → preenche data, tipo, descrição, valor e forma de pagamento → sistema valida campos (valor >0, tipo válido) → armazena localmente no banco de dados → atualiza lista e resumo.</div>
+          <div class="step-text"><strong>Cadastro de Inquilino e Imóvel</strong><br>Usuário acessa "Cadastros" → preenche dados do inquilino (nome, CPF, contato) e endereço do imóvel, valor do aluguel, dia de vencimento → sistema salva no banco → vincula inquilino ao imóvel automaticamente.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">2</div>
-          <div class="step-text"><strong>Visualizar despesas</strong><br>Ao iniciar ou clicar em "Início", o sistema exibe lista com últimas despesas e total do mês atual. Caso deseje filtrar por categoria → seleciona o tipo no menu de filtros → aplica query no modelo de dados.</div>
+          <div class="step-text"><strong>Emissão Mensal de Boletos</strong><br>Todo dia 1º de cada mês (ou manualmente), sistema verifica contratos ativos → gera boleto com valor do aluguel + data_vencimento (dia definido) → armazena código de barras e status "pendente". Usuário pode emitir PDF e compartilhar via WhatsApp.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">3</div>
-          <div class="step-text"><strong>Editar / Excluir</strong><br>Na lista de despesas, usuário desliza sobre um item (gesto swipe) ou clica no ícone de edição → altera dados da despesa ou confirma exclusão → sistema atualiza o registro no modelo de dados e recalcula totais automaticamente.</div>
+          <div class="step-text"><strong>Baixa de Pagamento</strong><br>Inquilino paga → usuário acessa tela "Pagamentos", localiza boleto pendente, clica em "Dar Baixa" → insere data, valor, forma de pagamento → sistema atualiza status do boleto para "pago" e registra na tabela Pagamento.</div>
         </div>
         <div class="step-item">
           <div class="step-circle">4</div>
-          <div class="step-text"><strong>Relatório por período</strong><br>O usuário seleciona "Relatórios" → escolhe mês/ano → sistema consulta a tabela 'Despesa' agrupando por tipo e devolve resumo com gráfico (procedimento de agregação). Baseado nos atributos data e valor.</div>
+          <div class="step-text"><strong>Controle de Inadimplência e Relatórios</strong><br>Sistema compara data atual com vencimentos não pagos → exibe lista de inadimplentes → opção de enviar notificação automática. Gera relatório de receitas por período (mês/ano) agrupado por imóvel/inquilino.</div>
         </div>
       </div>
       <div style="background:#ecf5f9; border-radius: 1rem; padding: 0.8rem; margin-top: 0.6rem;">
-        🔁 <strong>Procedimento em pseudocódigo (registro):</strong><br>
-        <code style="font-size:0.8rem;">function registrarDespesa(data, tipo, desc, valor, pagamento):<br>
-        &nbsp;&nbsp;if validarCampos() and valor > 0:<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO Despesa VALUES (...);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;atualizarTotalMensal();<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;return sucesso;<br>
-        &nbsp;&nbsp;else: exibirErro("Dados inválidos");</code>
+        🔁 <strong>Procedimento (pseudocódigo - Baixa de Pagamento):</strong><br>
+        <code style="font-size:0.8rem;">function registrarBaixa(id_boleto, valorPago, formaPagamento):<br>
+        &nbsp;&nbsp;if boleto.status == 'pendente' and valorPago == boleto.valor:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;INSERT INTO Pagamento VALUES (...);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;UPDATE Boleto SET status = 'pago' WHERE id = id_boleto;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Baixa registrada com sucesso";<br>
+        &nbsp;&nbsp;else:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Valor não confere ou boleto já pago";</code>
       </div>
     </div>
 
-    <!-- 5. Anexo com grupo e informações extras solicitadas no PDF -->
+    <!-- 5. GRUPO E INFORMAÇÕES FINAIS -->
     <div class="footer-group">
       <div class="members">
         👥 <strong>Membros do grupo que participaram da elaboração:</strong><br>
-        Ana Clara Rodrigues • Bruno Mendes Ferreira • Camila Vieira Santos • Diego Alves Moreira • Letícia Souza Lima
+        Celso Henrique Freitas • Renato Amaral • Victor Gomes Moura
       </div>
       <div class="btn-pseudo">
-        📎 Anexo virtual: protótipos, modelo de dados e procedimentos
+        📎 Anexo virtual: modelo de dados + protótipos + procedimentos
       </div>
     </div>
     <div style="margin-top: 1rem; text-align: right; font-size: 0.7rem; color: #538eaa; border-top: 1px solid #d0e2ec; padding-top: 1rem;">
-      🧾 Estudo de caso desenvolvido para disciplina de Engenharia de Software - Desenho/Modelagem. Protótipos conceituais compatíveis com https://www.quant-ux.com ou ferramentas similares.
+      🧾 Estudo de caso desenvolvido para disciplina de Engenharia de Software - Desenho/Modelagem.<br>
+      Tema: Cadastro de inquilinos, emissão de boleto e baixa de pagamentos. Protótipos compatíveis com ferramentas como Quant-UX, Figma ou MarvelApp.
     </div>
   </div>
 </div>
